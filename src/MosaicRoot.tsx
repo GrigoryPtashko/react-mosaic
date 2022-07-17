@@ -1,8 +1,18 @@
 import flatten from 'lodash/flatten';
+import isObjectLike from 'lodash/isObjectLike';
 import React from 'react';
 import { MosaicContext } from './contextTypes';
 import { Split } from './Split';
-import { MosaicBranch, MosaicDirection, MosaicKey, MosaicNode, ResizeOptions, TileRenderer } from './types';
+import {
+  MosaicBranch,
+  MosaicDirection,
+  MosaicKey,
+  MosaicKeyWithPayload,
+  MosaicNode,
+  MosaicPrimitiveKey,
+  ResizeOptions,
+  TileRenderer,
+} from './types';
 import { BoundingBox } from './util/BoundingBox';
 import { isParent } from './util/mosaicUtilities';
 
@@ -37,8 +47,14 @@ export class MosaicRoot<T extends MosaicKey> extends React.PureComponent<MosaicR
         ].filter(nonNullElement),
       );
     } else {
+      let key: string | number;
+      if (isObjectLike(node) && node.hasOwnProperty('key')) {
+        key = (node as MosaicKeyWithPayload).key;
+      } else {
+        key = node as MosaicPrimitiveKey;
+      }
       return (
-        <div key={node} className="mosaic-tile" style={{ ...BoundingBox.asStyles(boundingBox) }}>
+        <div key={key} className="mosaic-tile" style={{ ...BoundingBox.asStyles(boundingBox) }}>
           {this.props.renderTile(node, path)}
         </div>
       );

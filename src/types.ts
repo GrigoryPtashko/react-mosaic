@@ -1,10 +1,14 @@
 import { Spec } from 'immutability-helper';
 
+export type MosaicPrimitiveKey = string | number
+
+export type MosaicKeyWithPayload = { key: MosaicPrimitiveKey; payload: any };
+
 /**
  * Valid node types
  * @see React.Key
  */
-export type MosaicKey = string | number;
+export type MosaicKey = MosaicPrimitiveKey | MosaicKeyWithPayload;
 
 /**
  * Base type for the Mosaic binary tree

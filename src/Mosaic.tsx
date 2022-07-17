@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import countBy from 'lodash/countBy';
+import isObjectLike from 'lodash/isObjectLike';
 import keys from 'lodash/keys';
 import pickBy from 'lodash/pickBy';
 import React from 'react';
@@ -11,7 +12,15 @@ import { MosaicContext, MosaicRootActions } from './contextTypes';
 import { MosaicRoot } from './MosaicRoot';
 import { MosaicZeroState } from './MosaicZeroState';
 import { RootDropTargets } from './RootDropTargets';
-import { MosaicKey, MosaicNode, MosaicPath, MosaicUpdate, ResizeOptions, TileRenderer } from './types';
+import {
+  MosaicKey,
+  MosaicKeyWithPayload,
+  MosaicNode,
+  MosaicPath,
+  MosaicUpdate,
+  ResizeOptions,
+  TileRenderer
+} from './types';
 import { createExpandUpdate, createHideUpdate, createRemoveUpdate, updateTree } from './util/mosaicUpdates';
 import { getLeaves } from './util/mosaicUtilities';
 
@@ -202,7 +211,17 @@ export class MosaicWithoutDragDropContext<T extends MosaicKey = string> extends 
 
   private validateTree(node: MosaicNode<T> | null) {
     if (process.env.NODE_ENV !== 'production') {
-      const duplicates = keys(pickBy(countBy(getLeaves(node)), (n) => n > 1));
+      const keyExtractor = (n: MosaicNode<T>): string | number => {
+        let key: string | number;
+        if (isObjectLike(n) && n.hasOwnProperty('key')) {
+          key = (n as MosaicKeyWithPayload).key;
+        } else {
+          key = n as string | number;
+        }
+
+        return key;
+      };
+      const duplicates = keys(pickBy(countBy(getLeaves(node), keyExtractor), (n) => n > 1));
 
       if (duplicates.length > 0) {
         throw new Error(
