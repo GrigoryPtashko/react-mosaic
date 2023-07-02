@@ -1,11 +1,13 @@
 import classNames from 'classnames';
+import { DragDropManager } from 'dnd-core';
 import countBy from 'lodash/countBy';
 import isObjectLike from 'lodash/isObjectLike';
 import keys from 'lodash/keys';
 import pickBy from 'lodash/pickBy';
+import { HTML5toTouch } from 'rdndmb-html5-to-touch';
 import React from 'react';
-import { DndProvider } from 'react-dnd-multi-backend';
-import HTML5ToTouch from 'react-dnd-multi-backend/dist/cjs/HTML5toTouch';
+import { DndProvider } from 'react-dnd';
+import { MultiBackend } from 'react-dnd-multi-backend';
 import { v4 as uuid } from 'uuid';
 
 import { MosaicContext, MosaicRootActions } from './contextTypes';
@@ -66,6 +68,10 @@ export interface MosaicBaseProps<T extends MosaicKey> {
    * default: 'bp3'
    */
   blueprintNamespace?: string;
+  /**
+   * Override the react-dnd provider to allow applications to inject an existing drag and drop context
+   */
+  dragAndDropManager?: DragDropManager | undefined;
 }
 
 export interface MosaicControlledProps<T extends MosaicKey> extends MosaicBaseProps<T> {
@@ -235,7 +241,11 @@ export class MosaicWithoutDragDropContext<T extends MosaicKey = string> extends 
 export class Mosaic<T extends MosaicKey = string> extends React.PureComponent<MosaicProps<T>> {
   render() {
     return (
-      <DndProvider options={HTML5ToTouch}>
+      <DndProvider
+        backend={MultiBackend}
+        options={HTML5toTouch}
+        {...(this.props.dragAndDropManager && { manager: this.props.dragAndDropManager })}
+      >
         <MosaicWithoutDragDropContext<T> {...this.props} />
       </DndProvider>
     );

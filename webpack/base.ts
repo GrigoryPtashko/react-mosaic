@@ -2,21 +2,18 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import { CONSTANTS } from './constants';
 
-// tslint:disable-next-line no-var-requires
-const VENDOR_LIBS = Object.keys(require('../package.json').dependencies);
-
 const config: webpack.Configuration = {
-  entry: {
-    app: CONSTANTS.APP_ENTRY,
-    vendor: VENDOR_LIBS,
-  },
+  entry: CONSTANTS.APP_ENTRY,
   output: {
     filename: '[name].js',
     path: CONSTANTS.DOCS_DIR,
   },
-  devtool: '#source-map',
+  devtool: 'source-map',
   resolve: {
     extensions: ['.webpack.js', '.web.js', '.json', '.ts', '.js', '.tsx'],
+  },
+  optimization: {
+    moduleIds: 'named',
   },
   module: {
     rules: [
@@ -55,7 +52,7 @@ const config: webpack.Configuration = {
       },
       {
         test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff2?$|\.ttf$|\.eot$/,
-        loader: 'file-loader',
+        type: 'asset/resource',
       },
       {
         test: /\.less/,
@@ -74,14 +71,8 @@ const config: webpack.Configuration = {
     ],
   },
   plugins: [
-    new webpack.NamedModulesPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: Infinity,
-    }),
     new HtmlWebpackPlugin({
       template: CONSTANTS.HTML_TEMPLATE,
-      chunksSortMode: 'dependency',
     }),
   ],
 };

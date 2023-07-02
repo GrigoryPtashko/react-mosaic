@@ -1,8 +1,13 @@
 import webpack from 'webpack';
 import config from './base';
 
-const bundleConfig = {
+const bundleConfig: webpack.Configuration = {
   ...config,
+  mode: 'production',
+  optimization: {
+    ...config.optimization,
+    minimize: true,
+  },
   plugins: [
     ...(config.plugins || []),
     new webpack.DefinePlugin({
@@ -11,9 +16,6 @@ const bundleConfig = {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
     }),
   ],
 };
