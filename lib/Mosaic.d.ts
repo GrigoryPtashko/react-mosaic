@@ -1,3 +1,4 @@
+import { DragDropManager } from 'dnd-core';
 import React from 'react';
 import { MosaicKey, MosaicNode, ResizeOptions, TileRenderer } from './types';
 export interface MosaicBaseProps<T extends MosaicKey> {
@@ -40,6 +41,10 @@ export interface MosaicBaseProps<T extends MosaicKey> {
      * default: 'bp3'
      */
     blueprintNamespace?: string;
+    /**
+     * Override the react-dnd provider to allow applications to inject an existing drag and drop context
+     */
+    dragAndDropManager?: DragDropManager | undefined;
 }
 export interface MosaicControlledProps<T extends MosaicKey> extends MosaicBaseProps<T> {
     /**
@@ -54,7 +59,7 @@ export interface MosaicUncontrolledProps<T extends MosaicKey> extends MosaicBase
      */
     initialValue: MosaicNode<T> | null;
 }
-export declare type MosaicProps<T extends MosaicKey> = MosaicControlledProps<T> | MosaicUncontrolledProps<T>;
+export type MosaicProps<T extends MosaicKey> = MosaicControlledProps<T> | MosaicUncontrolledProps<T>;
 export interface MosaicState<T extends MosaicKey> {
     currentNode: MosaicNode<T> | null;
     lastInitialValue: MosaicNode<T> | null;
@@ -63,13 +68,13 @@ export interface MosaicState<T extends MosaicKey> {
 export declare class MosaicWithoutDragDropContext<T extends MosaicKey = string> extends React.PureComponent<MosaicProps<T>, MosaicState<T>> {
     static defaultProps: {
         onChange: () => undefined;
-        zeroStateView: JSX.Element;
+        zeroStateView: React.JSX.Element;
         className: string;
         blueprintNamespace: string;
     };
     static getDerivedStateFromProps(nextProps: Readonly<MosaicProps<MosaicKey>>, prevState: MosaicState<MosaicKey>): Partial<MosaicState<MosaicKey>> | null;
     state: MosaicState<T>;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
     private getRoot;
     private updateRoot;
     private replaceRoot;
@@ -79,5 +84,5 @@ export declare class MosaicWithoutDragDropContext<T extends MosaicKey = string> 
     private validateTree;
 }
 export declare class Mosaic<T extends MosaicKey = string> extends React.PureComponent<MosaicProps<T>> {
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

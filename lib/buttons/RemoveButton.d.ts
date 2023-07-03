@@ -4,6 +4,6 @@ import { MosaicButtonProps } from './MosaicButton';
 export declare class RemoveButton extends React.PureComponent<MosaicButtonProps> {
     static contextType: React.Context<MosaicWindowContext>;
     context: MosaicWindowContext;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
     private createRemove;
 }

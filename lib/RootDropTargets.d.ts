@@ -1,5 +1,2 @@
 import React from 'react';
-export interface RootDropTargetsProps {
-    isDragging: boolean;
-}
-export declare const RootDropTargets: React.ComponentType<{}>;
+export declare const RootDropTargets: React.MemoExoticComponent<() => React.JSX.Element>;

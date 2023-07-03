@@ -16,7 +16,7 @@ export declare class Split extends React.PureComponent<SplitProps> {
         onRelease: () => undefined;
         minimumPaneSizePercentage: number;
     };
-    render(): JSX.Element;
+    render(): React.JSX.Element;
     componentDidMount(): void;
     componentWillUnmount(): void;
     private bindListeners;

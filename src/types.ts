@@ -1,6 +1,6 @@
 import { Spec } from 'immutability-helper';
 
-export type MosaicPrimitiveKey = string | number
+export type MosaicPrimitiveKey = string | number;
 
 export type MosaicKeyWithPayload = { key: MosaicPrimitiveKey; payload: any };
 

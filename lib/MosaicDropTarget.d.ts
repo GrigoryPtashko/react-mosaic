@@ -5,4 +5,4 @@ export interface MosaicDropTargetProps {
     position: MosaicDropTargetPosition;
     path: MosaicPath;
 }
-export declare const MosaicDropTarget: React.ComponentType<MosaicDropTargetProps>;
+export declare function MosaicDropTarget({ path, position }: MosaicDropTargetProps): React.JSX.Element;

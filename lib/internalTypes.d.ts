@@ -1,5 +1,5 @@
 import { MosaicPath } from './types';
-export declare type MosaicDropTargetPosition = 'top' | 'bottom' | 'left' | 'right';
+export type MosaicDropTargetPosition = 'top' | 'bottom' | 'left' | 'right';
 export declare const MosaicDropTargetPosition: {
     TOP: "top";
     BOTTOM: "bottom";

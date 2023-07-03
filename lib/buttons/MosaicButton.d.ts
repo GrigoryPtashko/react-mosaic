@@ -4,11 +4,11 @@ export declare const DefaultToolbarButton: ({ title, className, onClick, text, }
     className: string;
     onClick: (event: React.MouseEvent<any>) => any;
     text?: string | undefined;
-}) => JSX.Element;
+}) => React.JSX.Element;
 /**
  * @deprecated: see @DefaultToolbarButton
  */
-export declare const createDefaultToolbarButton: (title: string, className: string, onClick: (event: React.MouseEvent<any>) => any, text?: string | undefined) => JSX.Element;
+export declare const createDefaultToolbarButton: (title: string, className: string, onClick: (event: React.MouseEvent<any>) => any, text?: string) => React.JSX.Element;
 export interface MosaicButtonProps {
     onClick?: () => void;
 }

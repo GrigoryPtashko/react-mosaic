@@ -5,10 +5,12 @@ import { CreateNode, MosaicBranch, MosaicKey } from './types';
 export interface MosaicWindowProps<T extends MosaicKey> {
     title: string;
     path: MosaicBranch[];
+    children?: React.ReactNode;
     className?: string;
     toolbarControls?: React.ReactNode;
     additionalControls?: React.ReactNode;
     additionalControlButtonText?: string;
+    onAdditionalControlsToggle?: (toggle: boolean) => void;
     draggable?: boolean;
     createNode?: CreateNode<T>;
     renderPreview?: (props: MosaicWindowProps<T>) => JSX.Element;
@@ -25,7 +27,7 @@ export interface InternalDropTargetProps {
     isOver: boolean;
     draggedMosaicId: string | undefined;
 }
-export declare type InternalMosaicWindowProps<T extends MosaicKey> = MosaicWindowProps<T> & InternalDropTargetProps & InternalDragSourceProps;
+export type InternalMosaicWindowProps<T extends MosaicKey> = MosaicWindowProps<T> & InternalDropTargetProps & InternalDragSourceProps;
 export interface InternalMosaicWindowState {
     additionalControlsOpen: boolean;
 }
@@ -35,7 +37,7 @@ export declare class InternalMosaicWindow<T extends MosaicKey> extends React.Com
     context: MosaicContext<T>;
     state: InternalMosaicWindowState;
     private rootElement;
-    render(): JSX.Element;
+    render(): React.JSX.Element;
     private getToolbarControls;
     private renderToolbar;
     private renderDropTarget;
@@ -47,8 +49,6 @@ export declare class InternalMosaicWindow<T extends MosaicKey> extends React.Com
     private connectDragSource;
     private readonly childContext;
 }
-export declare const SourceConnectedInternalMosaicWindow: import("react-dnd").DndComponentClass<typeof InternalMosaicWindow, import("react-dnd").Omit<InternalMosaicWindowProps<any> | InternalMosaicWindowProps<MosaicKey>, "connectDragSource" | "connectDragPreview">>;
-export declare const SourceDropConnectedInternalMosaicWindow: import("react-dnd").DndComponentClass<any, import("react-dnd").Omit<unknown, never>>;
 export declare class MosaicWindow<T extends MosaicKey = string> extends React.PureComponent<MosaicWindowProps<T>> {
-    render(): JSX.Element;
+    render(): React.JSX.Element;
 }

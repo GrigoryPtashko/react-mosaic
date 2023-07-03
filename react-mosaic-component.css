@@ -34,10 +34,10 @@
 }
 .mosaic-root {
   position: absolute;
-  top: 3px;
-  right: 3px;
-  bottom: 3px;
-  left: 3px;
+  top: 6px / 2;
+  right: 6px / 2;
+  bottom: 6px / 2;
+  left: 6px / 2;
 }
 .mosaic-split {
   position: absolute;
@@ -51,30 +51,30 @@
   position: absolute;
 }
 .mosaic-split.-row {
-  margin-left: -3px;
+  margin-left: -6px / 2;
   width: 6px;
   cursor: ew-resize;
 }
 .mosaic-split.-row .mosaic-split-line {
   top: 0;
   bottom: 0;
-  left: 3px;
-  right: 3px;
+  left: 6px / 2;
+  right: 6px / 2;
 }
 .mosaic-split.-column {
-  margin-top: -3px;
+  margin-top: -6px / 2;
   height: 6px;
   cursor: ns-resize;
 }
 .mosaic-split.-column .mosaic-split-line {
-  top: 3px;
-  bottom: 3px;
+  top: 6px / 2;
+  bottom: 6px / 2;
   left: 0;
   right: 0;
 }
 .mosaic-tile {
   position: absolute;
-  margin: 3px;
+  margin: 6px / 2;
 }
 .mosaic-tile > * {
   height: 100%;
@@ -150,23 +150,17 @@
 .mosaic-window,
 .mosaic-preview {
   position: relative;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
+  flex-direction: column;
   overflow: hidden;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
 }
 .mosaic-window .mosaic-window-toolbar,
 .mosaic-preview .mosaic-window-toolbar {
   z-index: 4;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   flex-shrink: 0;
   height: 30px;
   background: white;
@@ -178,14 +172,11 @@
 }
 .mosaic-window .mosaic-window-title,
 .mosaic-preview .mosaic-window-title {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   height: 100%;
   padding-left: 15px;
-  -webkit-box-flex: 1;
-          flex: 1;
+  flex: 1;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -193,7 +184,6 @@
 }
 .mosaic-window .mosaic-window-controls,
 .mosaic-preview .mosaic-window-controls {
-  display: -webkit-box;
   display: flex;
   height: 100%;
 }
@@ -201,13 +191,12 @@
 .mosaic-preview .mosaic-window-controls .separator {
   height: 20px;
   border-left: 1px solid black;
-  margin: 5px 4px;
+  margin: 10px/2 4px;
 }
 .mosaic-window .mosaic-window-body,
 .mosaic-preview .mosaic-window-body {
   position: relative;
-  -webkit-box-flex: 1;
-          flex: 1;
+  flex: 1;
   height: 0;
   background: white;
   z-index: 1;
@@ -223,18 +212,16 @@
   height: 0;
   overflow: hidden;
   background: white;
-  -webkit-box-pack: end;
-          justify-content: flex-end;
-  display: -webkit-box;
+  justify-content: flex-end;
   display: flex;
   z-index: 3;
 }
-.mosaic-window .mosaic-window-additional-actions-bar .bp4-button,
-.mosaic-preview .mosaic-window-additional-actions-bar .bp4-button {
+.mosaic-window .mosaic-window-additional-actions-bar .bp5-button,
+.mosaic-preview .mosaic-window-additional-actions-bar .bp5-button {
   margin: 0;
 }
-.mosaic-window .mosaic-window-additional-actions-bar .bp4-button:after,
-.mosaic-preview .mosaic-window-additional-actions-bar .bp4-button:after {
+.mosaic-window .mosaic-window-additional-actions-bar .bp5-button:after,
+.mosaic-preview .mosaic-window-additional-actions-bar .bp5-button:after {
   display: none;
 }
 .mosaic-window .mosaic-window-body-overlay,
@@ -268,15 +255,10 @@
 }
 .mosaic-window .mosaic-preview .mosaic-window-body,
 .mosaic-preview .mosaic-preview .mosaic-window-body {
-  display: -webkit-box;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .mosaic-window .mosaic-preview h4,
 .mosaic-preview .mosaic-preview h4 {
@@ -299,8 +281,8 @@
 }
 .mosaic.mosaic-blueprint-theme .mosaic-zero-state {
   background: #e5e8eb;
-  border-radius: 3px;
-  box-shadow: 0 0 0 1px rgba(17, 20, 24, 0.15), 0 0 0 rgba(17, 20, 24, 0), 0 0 0 rgba(17, 20, 24, 0);
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(17, 20, 24, 0.15);
 }
 .mosaic.mosaic-blueprint-theme .mosaic-zero-state .default-zero-state-icon {
   font-size: 120px;
@@ -315,24 +297,22 @@
 .mosaic.mosaic-blueprint-theme .mosaic-drop-target .drop-target-container .drop-target {
   background: rgba(138, 187, 255, 0.2);
   border: 2px solid #4c90f0;
-  -webkit-transition: opacity 100ms;
   transition: opacity 100ms;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .mosaic.mosaic-blueprint-theme .mosaic-window,
 .mosaic.mosaic-blueprint-theme .mosaic-preview {
-  box-shadow: 0 0 0 1px rgba(17, 20, 24, 0.15), 0 0 0 rgba(17, 20, 24, 0), 0 0 0 rgba(17, 20, 24, 0);
-  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(17, 20, 24, 0.15);
+  border-radius: 2px;
 }
 .mosaic.mosaic-blueprint-theme .mosaic-window .mosaic-window-toolbar,
 .mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-window-toolbar {
   box-shadow: 0 1px 1px rgba(17, 20, 24, 0.15);
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
 }
 .mosaic.mosaic-blueprint-theme .mosaic-window .mosaic-window-toolbar.draggable:hover,
 .mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-window-toolbar.draggable:hover {
-  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#f6f7f9));
   background: linear-gradient(to bottom, #ffffff, #f6f7f9);
 }
 .mosaic.mosaic-blueprint-theme .mosaic-window .mosaic-window-toolbar.draggable:hover .mosaic-window-title,
@@ -348,10 +328,10 @@
 .mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-window-controls .separator {
   border-left: 1px solid #dce0e5;
 }
-.mosaic.mosaic-blueprint-theme .mosaic-window .mosaic-window-controls .bp4-button,
-.mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-window-controls .bp4-button,
-.mosaic.mosaic-blueprint-theme .mosaic-window .mosaic-window-controls .bp4-button:before,
-.mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-window-controls .bp4-button:before {
+.mosaic.mosaic-blueprint-theme .mosaic-window .mosaic-window-controls .bp5-button,
+.mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-window-controls .bp5-button,
+.mosaic.mosaic-blueprint-theme .mosaic-window .mosaic-window-controls .bp5-button:before,
+.mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-window-controls .bp5-button:before {
   color: #738091;
 }
 .mosaic.mosaic-blueprint-theme .mosaic-window .default-preview-icon,
@@ -362,24 +342,23 @@
 .mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-window-body {
   border-top-width: 0;
   background: #f6f7f9;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
 }
 .mosaic.mosaic-blueprint-theme .mosaic-window .mosaic-window-additional-actions-bar,
 .mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-window-additional-actions-bar {
-  -webkit-transition: height 250ms;
   transition: height 250ms;
   box-shadow: 0 1px 1px rgba(17, 20, 24, 0.15);
 }
-.mosaic.mosaic-blueprint-theme .mosaic-window .mosaic-window-additional-actions-bar .bp4-button,
-.mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-window-additional-actions-bar .bp4-button,
-.mosaic.mosaic-blueprint-theme .mosaic-window .mosaic-window-additional-actions-bar .bp4-button:before,
-.mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-window-additional-actions-bar .bp4-button:before {
+.mosaic.mosaic-blueprint-theme .mosaic-window .mosaic-window-additional-actions-bar .bp5-button,
+.mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-window-additional-actions-bar .bp5-button,
+.mosaic.mosaic-blueprint-theme .mosaic-window .mosaic-window-additional-actions-bar .bp5-button:before,
+.mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-window-additional-actions-bar .bp5-button:before {
   color: #738091;
 }
 .mosaic.mosaic-blueprint-theme .mosaic-window.additional-controls-open .mosaic-window-toolbar,
 .mosaic.mosaic-blueprint-theme .mosaic-preview.additional-controls-open .mosaic-window-toolbar {
-  box-shadow: 0 1px 0 0 0 0 1px rgba(17, 20, 24, 0.15), 0 0 0 rgba(17, 20, 24, 0), 0 0 0 rgba(17, 20, 24, 0);
+  box-shadow: 0 1px 0 0 0 0 1px rgba(17, 20, 24, 0.15);
 }
 .mosaic.mosaic-blueprint-theme .mosaic-window .mosaic-preview,
 .mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-preview {
@@ -389,72 +368,71 @@
 .mosaic.mosaic-blueprint-theme .mosaic-preview .mosaic-preview h4 {
   color: #404854;
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark {
+.mosaic.mosaic-blueprint-theme.bp5-dark {
   background: #252a31;
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-zero-state {
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-zero-state {
   background: #383e47;
-  box-shadow: 0 0 0 1px rgba(17, 20, 24, 0.4), 0 0 0 rgba(17, 20, 24, 0), 0 0 0 rgba(17, 20, 24, 0);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-split:hover .mosaic-split-line {
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-split:hover .mosaic-split-line {
   box-shadow: 0 0 0 1px #2d72d2;
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark.mosaic-drop-target .drop-target-container .drop-target,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-drop-target .drop-target-container .drop-target {
+.mosaic.mosaic-blueprint-theme.bp5-dark.mosaic-drop-target .drop-target-container .drop-target,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-drop-target .drop-target-container .drop-target {
   background: rgba(33, 93, 176, 0.2);
   border-color: #2d72d2;
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window-toolbar,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window-additional-actions-bar {
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window-toolbar,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window-additional-actions-bar {
   background: #383e47;
   box-shadow: 0 1px 1px rgba(17, 20, 24, 0.4);
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-preview {
-  box-shadow: 0 0 0 1px rgba(17, 20, 24, 0.4), 0 0 0 rgba(17, 20, 24, 0), 0 0 0 rgba(17, 20, 24, 0);
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window .mosaic-window-toolbar.draggable:hover,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-preview .mosaic-window-toolbar.draggable:hover {
-  background: -webkit-gradient(linear, left top, left bottom, from(#404854), to(#383e47));
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window .mosaic-window-toolbar.draggable:hover,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview .mosaic-window-toolbar.draggable:hover {
   background: linear-gradient(to bottom, #404854, #383e47);
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window .mosaic-window-toolbar.draggable:hover .mosaic-window-title,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-preview .mosaic-window-toolbar.draggable:hover .mosaic-window-title {
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window .mosaic-window-toolbar.draggable:hover .mosaic-window-title,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview .mosaic-window-toolbar.draggable:hover .mosaic-window-title {
   color: #ffffff;
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window .mosaic-window-title,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-preview .mosaic-window-title {
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window .mosaic-window-title,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview .mosaic-window-title {
   color: #dce0e5;
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window .mosaic-window-controls .separator,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-preview .mosaic-window-controls .separator {
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window .mosaic-window-controls .separator,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview .mosaic-window-controls .separator {
   border-color: #5f6b7c;
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window .mosaic-window-controls .bp4-button,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-preview .mosaic-window-controls .bp4-button,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window .mosaic-window-controls .bp4-button:before,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-preview .mosaic-window-controls .bp4-button:before {
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window .mosaic-window-controls .bp5-button,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview .mosaic-window-controls .bp5-button,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window .mosaic-window-controls .bp5-button:before,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview .mosaic-window-controls .bp5-button:before {
   color: #abb3bf;
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window .mosaic-window-body,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-preview .mosaic-window-body {
-  background: #2f343c;
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window .mosaic-window-body,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview .mosaic-window-body {
+  background: #252a31;
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window .mosaic-window-additional-actions-bar .bp4-button,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-preview .mosaic-window-additional-actions-bar .bp4-button,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window .mosaic-window-additional-actions-bar .bp4-button:before,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-preview .mosaic-window-additional-actions-bar .bp4-button:before {
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window .mosaic-window-additional-actions-bar .bp5-button,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview .mosaic-window-additional-actions-bar .bp5-button,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window .mosaic-window-additional-actions-bar .bp5-button:before,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview .mosaic-window-additional-actions-bar .bp5-button:before {
   color: #c5cbd3;
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window.additional-controls-open .mosaic-window-toolbar,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-preview.additional-controls-open .mosaic-window-toolbar {
-  box-shadow: 0 0 0 1px rgba(17, 20, 24, 0.4), 0 0 0 rgba(17, 20, 24, 0), 0 0 0 rgba(17, 20, 24, 0);
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window.additional-controls-open .mosaic-window-toolbar,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview.additional-controls-open .mosaic-window-toolbar {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window .mosaic-preview,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-preview .mosaic-preview {
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window .mosaic-preview,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview .mosaic-preview {
   border-color: #5f6b7c;
 }
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-window .mosaic-preview h4,
-.mosaic.mosaic-blueprint-theme.bp4-dark .mosaic-preview .mosaic-preview h4 {
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window .mosaic-preview h4,
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview .mosaic-preview h4 {
   color: #edeff2;
 }

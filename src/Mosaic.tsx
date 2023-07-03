@@ -21,7 +21,7 @@ import {
   MosaicPath,
   MosaicUpdate,
   ResizeOptions,
-  TileRenderer
+  TileRenderer,
 } from './types';
 import { createExpandUpdate, createHideUpdate, createRemoveUpdate, updateTree } from './util/mosaicUpdates';
 import { getLeaves } from './util/mosaicUtilities';
@@ -95,6 +95,10 @@ function isUncontrolled<T extends MosaicKey>(props: MosaicProps<T>): props is Mo
   return (props as MosaicUncontrolledProps<T>).initialValue != null;
 }
 
+function isControlled<T extends MosaicKey>(props: MosaicProps<T>): props is MosaicControlledProps<T> {
+  return 'value' in props;
+}
+
 export interface MosaicState<T extends MosaicKey> {
   currentNode: MosaicNode<T> | null;
   lastInitialValue: MosaicNode<T> | null;
@@ -152,8 +156,10 @@ export class MosaicWithoutDragDropContext<T extends MosaicKey = string> extends 
   private getRoot(): MosaicNode<T> | null {
     if (isUncontrolled(this.props)) {
       return this.state.currentNode;
-    } else {
+    } else if (isControlled(this.props)) {
       return this.props.value;
+    } else {
+      return null;
     }
   }
 

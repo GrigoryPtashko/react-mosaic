@@ -83,7 +83,7 @@ export class ExampleApp extends React.PureComponent<{}, ExampleAppState> {
             onChange={this.onChange}
             onRelease={this.onRelease}
             className={THEMES[this.state.currentTheme]}
-            blueprintNamespace="bp4"
+            blueprintNamespace="bp5"
           />
         </div>
       </React.StrictMode>
