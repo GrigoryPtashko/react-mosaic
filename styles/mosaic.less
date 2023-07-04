@@ -21,7 +21,7 @@
 }
 
 .mosaic-root {
-  @size: @split-size / 2;
+  @size: (@split-size / 2);
   .absolute-fill(@size, @size, @size, @size);
 }
 
@@ -39,26 +39,26 @@
   }
 
   &.-row {
-    margin-left: -@split-size / 2;
+    margin-left: -(@split-size / 2);
     width: @split-size;
     cursor: ew-resize;
 
     .mosaic-split-line {
       top: 0;
       bottom: 0;
-      left: @split-size / 2;
-      right: @split-size / 2;
+      left: (@split-size / 2);
+      right: (@split-size / 2);
     }
   }
 
   &.-column {
-    margin-top: -@split-size / 2;
+    margin-top: -(@split-size / 2);
     height: @split-size;
     cursor: ns-resize;
 
     .mosaic-split-line {
-      top: @split-size / 2;
-      bottom: @split-size / 2;
+      top: (@split-size / 2);
+      bottom: (@split-size / 2);
       left: 0;
       right: 0;
     }
@@ -67,7 +67,7 @@
 
 .mosaic-tile {
   position: absolute;
-  margin: @split-size / 2;
+  margin: (@split-size / 2);
 
   > * {
     height: 100%;
