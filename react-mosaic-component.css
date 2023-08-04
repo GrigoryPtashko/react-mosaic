@@ -436,3 +436,6 @@
 .mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-preview .mosaic-preview h4 {
   color: #edeff2;
 }
+.mosaic.mosaic-blueprint-theme.bp5-dark .mosaic-window {
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), 0 2px 4px rgba(17, 20, 24, 0.4), 0 8px 24px rgba(17, 20, 24, 0.4);
+}
